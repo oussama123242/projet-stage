@@ -57,7 +57,7 @@ class CandidatureController extends Controller
             'date_fin_experience' => $request->date_fin_experience,
             'motivation' => $request->motivation,
         ]);
-
+      
         // Envoyer l'email
         Mail::to('oussamabendoudi29@gmail.com')->send(new CandidatureSubmitted($candidature));
         return redirect()->route('success');
