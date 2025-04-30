@@ -20,9 +20,17 @@ public function up()
         $table->string('nom');
         $table->string('email');
         $table->string('telephone');
-        $table->string('cv');
-        $table->string('salaire_actuel')->nullable();
-        $table->string('pretention')->nullable();
+        $table->string('cv_path');
+        $table->string('poste');
+        $table->string('diplome')->nullable();
+        $table->string('ecole')->nullable();
+        $table->date('date_debut_formation')->nullable();
+        $table->date('date_fin_formation')->nullable();
+        $table->string('poste_experience')->nullable();
+        $table->string('entreprise')->nullable();
+        $table->date('date_debut_experience')->nullable();
+        $table->date('date_fin_experience')->nullable();
+        $table->text('motivation')->nullable();
         $table->timestamps();
     });
 }

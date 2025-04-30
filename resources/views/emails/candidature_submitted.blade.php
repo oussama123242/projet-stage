@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Nouvelle Candidature</title>
+    <title>Nouvelle candidature</title>
 </head>
 <body>
-    <h1>Nouvelle candidature reçue</h1>
-    <p>Prénom: {{ $candidature->prenom }}</p>
-    <p>Nom: {{ $candidature->nom }}</p>
-    <p>Email: {{ $candidature->email }}</p>
-    <p>Téléphone: {{ $candidature->telephone }}</p>
-
+    <h2>Nouvelle candidature reçue</h2>
+    
+    <p><strong>Poste:</strong> {{ $candidature->poste }}</p>
+    <p><strong>Nom:</strong> {{ $candidature->prenom }} {{ $candidature->nom }}</p>
+    <p><strong>Email:</strong> {{ $candidature->email }}</p>
+    <p><strong>Téléphone:</strong> {{ $candidature->telephone }}</p>
+    
+    <p>CV attaché à cet email.</p>
 </body>
 </html>
