@@ -222,8 +222,9 @@
             Vous êtes passionné par le management de projet et les systèmes complexes ? Intégrez une équipe dynamique pour piloter des solutions de gestion de parcours innovantes.
           </p>
           <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#postulerModal">
-  <i class="fas fa-paper-plane"></i> POSTULER
+    POSTULER
 </button>
+
 
         </div>
       </div>
@@ -237,8 +238,9 @@
             En tant qu'expert JS, vous encadrerez le développement front-end VueJS avec des projets backend PHP robustes et évolutifs dans un environnement agile.
           </p>
           <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#postulerModal">
-  <i class="fas fa-paper-plane"></i> POSTULER
+    POSTULER
 </button>
+
 
         </div>
       </div>
@@ -252,8 +254,9 @@
             Analyser la qualité du signal radio, mesurer les KPIs et améliorer l'expérience utilisateur au sein de réseaux mobiles de nouvelle génération.
           </p>
           <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#postulerModal">
-  <i class="fas fa-paper-plane"></i> POSTULER
+    POSTULER
 </button>
+
 
         </div>
       </div>
@@ -267,8 +270,9 @@
             Premier point de contact pour nos utilisateurs, vous assurez le support technique, la résolution des incidents et l'assistance à distance.
           </p>
           <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#postulerModal">
-  <i class="fas fa-paper-plane"></i> POSTULER
+    POSTULER
 </button>
+
 
         </div>
       </div>
@@ -282,8 +286,9 @@
             Concevez et optimisez des architectures réseaux complexes et performantes pour accompagner la transformation numérique de nos clients.
           </p>
           <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#postulerModal">
-  <i class="fas fa-paper-plane"></i> POSTULER
+    POSTULER
 </button>
+
 
         </div>
       </div>
@@ -533,6 +538,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Swiper JS -->
 <script>
+
+function showForm() {
+        var form = document.getElementById('applicationForm');
+        form.classList.remove('hidden');
+    }
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');

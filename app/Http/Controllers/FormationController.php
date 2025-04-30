@@ -14,7 +14,7 @@ class FormationController extends Controller
     }
 
     // Méthode pour traiter la soumission du formulaire
-    public function store(Request $request)
+    public function store(Request $request, $candidature)
     {
         // Validation des données
         $validated = $request->validate([

@@ -23,6 +23,7 @@ class CandidatureController extends Controller
     // Traite la soumission du formulaire de candidature
     public function store(Request $request)
     {
+
         // Validation des données du formulaire
         $request->validate([
             'prenom' => 'required|string',
@@ -41,20 +42,26 @@ class CandidatureController extends Controller
             'date_debut_experience' => 'required|date',
             'date_fin_experience' => 'required|date',
         ]);
+        
+      
 
         // Traitement du fichier CV (stockage dans le dossier 'cv' de 'public')
         $cvPath = $request->file('cv')->store('cv', 'public');
 
+       
         // Création de la candidature
         $candidature = Candidature::create([
             'prenom' => $request->prenom,
             'nom' => $request->nom,
             'email' => $request->email,
             'telephone' => $request->telephone,
+
+
             'cv' => $cvPath,
             'salaire_actuel' => $request->salaire_actuel,
             'pretention' => $request->pretention,
         ]);
+        
 
         // Enregistrement des informations de formation
         Formation::create([
@@ -64,6 +71,11 @@ class CandidatureController extends Controller
             'date_debut_formation' => $request->date_debut_formation,
             'date_fin_formation' => $request->date_fin_formation,
         ]);
+      
+
+
+
+
 
         // Enregistrement des informations d'expérience
         Experience::create([
@@ -72,7 +84,11 @@ class CandidatureController extends Controller
             'entreprise' => $request->entreprise,
             'date_debut_experience' => $request->date_debut_experience,
             'date_fin_experience' => $request->date_fin_experience,
+           
+      
         ]);
+        return view('rejoignez-nous'); 
+
 
         // 📨 Envoi de l'email de confirmation
         Mail::to(env('CANDIDATURE_EMAIL'))->send(new CandidatureSubmitted($candidature));
@@ -80,4 +96,5 @@ class CandidatureController extends Controller
         // Redirection vers la page de succès
         return redirect()->route('candidature.success');
     }
+    
 }

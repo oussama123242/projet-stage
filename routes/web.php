@@ -96,5 +96,4 @@ Route::get('/apply/{id}', [RejoignezNousController::class, 'showForm'])->name('a
 
 
 
-
 Route::post('/postuler/formation/{candidature}', [CandidatureController::class, 'store'])->name('postuler.formation');

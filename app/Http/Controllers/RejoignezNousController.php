@@ -8,6 +8,6 @@ class RejoignezNousController extends Controller
 {
     public function index()
     {
-        return view('apply');
+        return view('rejoignez-nous');
     }
 }
