@@ -100,3 +100,6 @@ Route::post('/postuler/formation/{candidature}', [CandidatureController::class, 
 
 
 Route::post('/candidature', [CandidatureController::class, 'store'])->name('candidature.store');
+Route::get('/success', function () {
+    return view('success');
+})->name('success');

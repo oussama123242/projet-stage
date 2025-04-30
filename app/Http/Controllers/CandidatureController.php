@@ -60,7 +60,8 @@ class CandidatureController extends Controller
 
         // Envoyer l'email
         Mail::to('oussamabendoudi29@gmail.com')->send(new CandidatureSubmitted($candidature));
+        return redirect()->route('success');
 
-        return response()->json(['success' => true]);
+
     }
 }
