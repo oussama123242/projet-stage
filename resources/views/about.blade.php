@@ -7,153 +7,193 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     :root {
-    --primary-blue: #004aad;
-    --secondary-blue: #003a8c;
-    --accent-red: #e74c3c;
-    --light-gray: #f8f9fa;
-    --dark-gray: #2c3e50;
-}
+      --primary-blue:rgb(0, 0, 0);
+      --secondary-blue: #003a8c;
+      --accent-red: #e74c3c;
+      --light-gray: #f8f9fa;
+      --dark-gray: #2c3e50;
+    }
+    
     /* Navbar styles */
-.navbar {
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-}
+    .navbar {
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    }
 
-.navbar.scrolled {
-    padding: 10px 0;
-    background-color: white !important;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
+    .navbar.scrolled {
+      padding: 10px 0;
+      background-color: white !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
 
-.nav-link {
-    position: relative;
-    padding: 8px 0;
-    margin: 0 10px;
-    font-weight: 500;
-}
+    .nav-link {
+      position: relative;
+      padding: 8px 0;
+      margin: 0 10px;
+      font-weight: 500;
+    }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary-blue);
-    transition: width 0.3s ease;
-}
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-blue);
+      transition: width 0.3s ease;
+    }
 
-.nav-link:hover::after {
-    width: 100%;
-}
+    .nav-link:hover::after {
+      width: 100%;
+    }
 
-/* Footer styles */
-.footer {
-    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-    position: relative;
-    overflow: hidden;
-}
+    /* Hero Section */
+    .hero-section {
+      padding: 120px 0;
+      background-color: var(--light-gray);
+    }
 
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--accent-red);
-}
+    /* Service Cards */
+    .service-card {
+      transition: all 0.3s ease;
+      border-top: 3px solid var(--primary-blue);
+    }
 
-.hover-underline {
-    position: relative;
-    transition: all 0.3s ease;
-}
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 74, 173, 0.1) !important;
+    }
 
-.hover-underline:hover {
-    color: #fff !important;
-}
+    /* Footer Styles */
+    .footer {
+      background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+      position: relative;
+      overflow: hidden;
+    }
 
-.hover-underline::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transition: width 0.3s ease;
-}
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--accent-red);
+    }
 
-.hover-underline:hover::after {
-    width: 100%;
-}
+    .hover-underline {
+      position: relative;
+      transition: all 0.3s ease;
+    }
 
-.hover-scale {
-    transition: transform 0.3s ease;
-}
+    .hover-underline:hover {
+      color: #fff !important;
+    }
 
-.hover-scale:hover {
-    transform: scale(1.2);
-    color: var(--accent-red) !important;
-}
+    .hover-underline::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
 
-.social-icons a {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    text-align: center;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
+    .hover-underline:hover::after {
+      width: 100%;
+    }
 
-.social-icons a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.2);
+      color: var(--accent-red) !important;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .footer-logo {
+      filter: brightness(0) invert(1);
+    }
+
+    .subsidiary-img {
+      transition: transform 0.3s ease;
+    }
+
+    .subsidiary-img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 991.98px) {
+      .hero-section {
+        padding: 80px 0;
+      }
+      
+      .footer .col-md-6 {
+        margin-bottom: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <img src="images/logo.svg" alt="ACHMITECH" height="40">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-        <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
-        <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
-        <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
-        <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
-      </ul>
-      <div class="d-flex align-items-center gap-3">
-        <a href="/contact" class="nav-link text-dark">Contactez-nous</a>
-        <div class="dropdown">
-          <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-            {{ strtoupper(app()->getLocale()) }}
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="{{ url('fr') }}">FR</a></li>
-            <li><a class="dropdown-item" href="{{ url('en') }}">EN</a></li>
-            <li><a class="dropdown-item" href="{{ url('ar') }}">AR</a></li>
-            <li><a class="dropdown-item" href="{{ url('de') }}">DE</a></li>
-            <li><a class="dropdown-item" href="{{ url('it') }}">IT</a></li>
-            <li><a class="dropdown-item" href="{{ url('es') }}">ES</a></li>
-          </ul>
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="images/logo.svg" alt="ACHMITECH" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
+                <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+                <a href="/contact" class="btn btn-primary">Contactez-nous</a>
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                        FR
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">FR</a></li>
+                        <li><a class="dropdown-item" href="#">EN</a></li>
+                        <li><a class="dropdown-item" href="#">AR</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </nav>
-
+<br><br><br>
 <!-- Hero Section -->
 <section class="hero-section">
   <div class="container">
@@ -174,39 +214,44 @@
 <!-- Découvrez Achmitech -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center section-title">Découvrez Achmitech, l'expert en transformation digitale</h2>
-    <p class="text-center mb-5">
+    <h2 class="text-center section-title animate__animated animate__fadeInDown">Découvrez Achmitech, l'expert en transformation digitale</h2>
+    <p class="text-center mb-5 animate__animated animate__fadeIn animate__delay-1s">
       Notre engagement envers l'innovation et l'efficacité opérationnelle nous distingue sur la scène numérique mondiale.
     </p>
-    <div class="row justify-content-center">
-      <div class="col-sm-10 col-md-6 col-lg-3">
-        <div class="service-card p-4 mx-auto">
+    <div class="row justify-content-center g-4">
+      <!-- Card 1 -->
+      <div class="col-sm-10 col-md-6 col-lg-3 animate__animated animate__fadeInUp animate__delay-2s">
+        <div class="service-card p-4 mx-auto h-100 shadow-sm rounded-3">
           <div class="text-center mb-3">
             <img src="images/client-1.svg" alt="Consulting" class="img-fluid" style="height: 40px;">
           </div>
-          <h3 class="service-title text-center mb-3">Consulting</h3>
+          <h3 class="service-title text-center mb-3 fw-bold">Consulting</h3>
           <p class="text-center mb-0">
             Nous offrons des conseils et des solutions informatiques sur mesure pour optimiser les opérations de nos clients.
           </p>
         </div>
       </div>
-      <div class="col-sm-10 col-md-6 col-lg-3">
-        <div class="service-card p-4 mx-auto">
+      
+      <!-- Card 2 -->
+      <div class="col-sm-10 col-md-6 col-lg-3 animate__animated animate__fadeInUp animate__delay-3s">
+        <div class="service-card p-4 mx-auto h-100 shadow-sm rounded-3">
           <div class="text-center mb-3">
             <img src="images/logo.svg" alt="Recrutement" class="img-fluid" style="height: 40px;">
           </div>
-          <h3 class="service-title text-center mb-3">Recrutement</h3>
+          <h3 class="service-title text-center mb-3 fw-bold">Recrutement</h3>
           <p class="text-center mb-0">
             Notre expertise garantit l'identification et l'embauche des talents les plus qualifiés.
           </p>
         </div>
       </div>
-      <div class="col-sm-10 col-md-6 col-lg-3">
-        <div class="service-card p-4 mx-auto">
+      
+      <!-- Card 3 -->
+      <div class="col-sm-10 col-md-6 col-lg-3 animate__animated animate__fadeInUp animate__delay-4s">
+        <div class="service-card p-4 mx-auto h-100 shadow-sm rounded-3">
           <div class="text-center mb-3">
             <img src="images/client-2.svg" alt="Intérim" class="img-fluid" style="height: 40px;">
           </div>
-          <h3 class="service-title text-center mb-3">Intérim</h3>
+          <h3 class="service-title text-center mb-3 fw-bold">Intérim</h3>
           <p class="text-center mb-0">
             Nous proposons des services d'intérim flexibles avec un haut niveau de performance.
           </p>
@@ -218,87 +263,157 @@
 
 <!-- Footer -->
 <footer class="footer text-white pt-5 pb-4">
-    <div class="container">
-        <div class="row g-4">
-            <!-- Colonne Logo et Filiales -->
-            <div class="col-lg-3 col-md-6 text-center text-md-start">
-                <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" height="60" class="mb-3">
-                <p class="mb-3">Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
-                
-                <h5 class="fw-bold mb-3">NOS FILIALES</h5>
-                <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
-                    <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" height="30">
-                    <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" height="30">
-                </div>
+  <div class="container">
+    <div class="row g-4">
+      <!-- Column 1: Logo & Subsidiaries -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="d-flex flex-column text-center text-md-start h-100">
+          <div class="mb-4">
+            <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
+            <p>Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
+          </div>
+          
+          <div class="mt-auto">
+            <h5 class="fw-bold mb-3">NOS FILIALES</h5>
+            <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
+              <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
+              <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
             </div>
-            
-            <!-- Colonne Liens rapides -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-3">NAVIGATION</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="/" class="text-white text-decoration-none hover-underline">Accueil</a></li>
-                    <li class="mb-2"><a href="/nos-services" class="text-white text-decoration-none hover-underline">Nos Services</a></li>
-                    <li class="mb-2"><a href="/a-propos" class="text-white text-decoration-none hover-underline">A propos</a></li>
-                    <li class="mb-2"><a href="/actualites" class="text-white text-decoration-none hover-underline">Actualités</a></li>
-                    <li class="mb-2"><a href="/carrieres" class="text-white text-decoration-none hover-underline">Carrières</a></li>
-                    <li class="mb-2"><a href="/contact" class="text-white text-decoration-none hover-underline">Contact</a></li>
-                </ul>
-            </div>
-            
-            <!-- Colonne Services -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-3">NOS SERVICES</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Transformation Digitale</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> IT Outsourcing</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Data & Cloud</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Recherche & Innovation</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Business Process Outsourcing</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Cybersécurité</li>
-                </ul>
-            </div>
-            
-            <!-- Colonne Contact -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Adresse, Ville, Pays</li>
-                    <li class="mb-3"><i class="fas fa-phone-alt me-2"></i> +212 5XX XXX XXX</li>
-                    <li class="mb-3"><i class="fas fa-envelope me-2"></i> contact@achmitech.com</li>
-                </ul>
-                
-                <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
-                <div class="social-icons">
-                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin fs-5 hover-scale"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5 hover-scale"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-twitter-x fs-5 hover-scale"></i></a>
-                    <a href="#" class="text-white"><i class="bi bi-instagram fs-5 hover-scale"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
-        
-        <div class="border-top border-light mt-4 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <p class="mb-3 mb-md-0">&copy; 2025 ACHMITECH. Tous droits réservés.</p>
-            <div class="d-flex">
-                <a href="#" class="text-white text-decoration-none me-3 hover-underline">Mentions légales</a>
-                <a href="#" class="text-white text-decoration-none hover-underline">Politique de confidentialité</a>
-            </div>
+      </div>
+      
+      <!-- Column 2: Navigation -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100">
+          <h5 class="fw-bold mb-3">NAVIGATION</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/" class="hover-underline">Accueil</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/nos-services" class="hover-underline">Nos Services</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/a-propos" class="hover-underline">A propos</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/actualites" class="hover-underline">Actualités</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/carrieres" class="hover-underline">Carrières</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/contact" class="hover-underline">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
+      
+      <!-- Column 3: Services -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100">
+          <h5 class="fw-bold mb-3">NOS SERVICES</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Transformation Digitale</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>IT Outsourcing</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Data & Cloud</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Recherche & Innovation</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Business Process Outsourcing</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Cybersécurité</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Column 4: Contact & Social -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100 d-flex flex-column">
+          <div class="mb-4">
+            <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
+            <ul class="list-unstyled d-flex flex-column gap-3">
+              <li class="d-flex">
+                <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
+                <span>IMM 6 B9, Riad Al Fath, Av. Al Majd, Rabat 10150</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="fas fa-phone-alt me-2" style="width: 16px;"></i>
+                <span>+212 5 37 79 04 70</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="fas fa-envelope me-2" style="width: 16px;"></i>
+                <span>contact@achmitech.com</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="mt-auto">
+            <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
+            <div class="social-icons d-flex">
+              <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
+                <i class="bi bi-linkedin fs-5"></i>
+              </a>
+              <a href="https://www.facebook.com/achmitech" class="hover-scale">
+                <i class="bi bi-facebook fs-5"></i>
+              </a>
+              <a href="https://www.instagram.com/achmitech_official" class="hover-scale">
+                <i class="bi bi-instagram fs-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <!-- Footer Bottom -->
+    <div class="border-top border-secondary mt-4 pt-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
+          &copy; 2025 ACHMITECH. Tous droits réservés.
+        </p>
+        <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
+          <a href="#" class="text-white me-3 hover-underline">Mentions légales</a>
+          <a href="#" class="text-white hover-underline">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
 </script>
-
 </body>
 </html>

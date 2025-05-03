@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #19b69e;
+            background-color: #3498db;
             height: 100vh;
             display: flex;
             flex-direction: column;

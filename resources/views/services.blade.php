@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root {
-            --primary-blue: #004aad;
-            --secondary-blue: #003a8c;
-            --accent-red: #e74c3c;
-            --light-gray: #f8f9fa;
-            --dark-gray: #2c3e50;
-        }
+      --primary-blue:rgb(0, 0, 0);
+      --secondary-blue: #003a8c;
+      --accent-red: #e74c3c;
+      --light-gray: #f8f9fa;
+      --dark-gray: #2c3e50;
+    }
         
         /* Navigation (identique à votre premier code) */
         .navbar {
@@ -55,6 +55,7 @@
             background: linear-gradient(rgba(0, 74, 173, 0.8), rgba(0, 58, 140, 0.8)), 
                         url('/images/Slider.png') no-repeat center center;
             background-size: cover;
+            height: 600px;
             color: white;
             padding: 120px 0;
             text-align: center;
@@ -221,47 +222,45 @@
 <body>
 
 <!-- Navigation (identique à votre premier code) -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light py-3 fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <img src="images/logo.svg" alt="ACHMITECH" height="40">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-        <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
-        <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
-        <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
-        <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
-      </ul>
-      <div class="d-flex align-items-center gap-3">
-        <a href="/contact" class="nav-link text-dark">Contactez-nous</a>
-        <div class="dropdown">
-  <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-    {{ strtoupper(app()->getLocale()) }}
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><a class="dropdown-item" href="{{ url('fr') }}">FR</a></li>
-    <li><a class="dropdown-item" href="{{ url('en') }}">EN</a></li>
-    <li><a class="dropdown-item" href="{{ url('ar') }}">AR</a></li>
-    <li><a class="dropdown-item" href="{{ url('de') }}">DE</a></li>
-    <li><a class="dropdown-item" href="{{ url('it') }}">IT</a></li>
-    <li><a class="dropdown-item" href="{{ url('es') }}">ES</a></li>
-  </ul>
-</div>
-      </div>
-      </div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="images/logo.svg" alt="ACHMITECH" height="40">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
+                <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+                <a href="/contact" class="btn btn-primary">Contactez-nous</a>
+                <div class="dropdown">
+                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                        FR
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#">FR</a></li>
+                        <li><a class="dropdown-item" href="#">EN</a></li>
+                        <li><a class="dropdown-item" href="#">AR</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="container">
+        <br><br><br><br><br>
         <h1 class="animate__animated animate__fadeInDown">Accédez au meilleur de la technologie</h1>
         <p class="animate__animated animate__fadeIn animate__delay-1s">ACHMITECH propose une large gamme de services clés en main. Bénéficiez de l'expertise de nos équipes ou choisissez-nous comme partenaire privilégié pour vos projets.</p>
     </div>
@@ -270,7 +269,7 @@
 <!-- Services Section -->
 <section class="services-section">
     <div class="container">
-        <h2 class="section-title text-center animate__animated animate__fadeIn">NOS SERVICES</h2>
+        <h2 class="section-title text-center animate__animated animate__fadeIn" style="color: #3498db;">NOS SERVICES</h2>
         
         <div class="row g-4">
             <!-- Service 1 -->
@@ -279,7 +278,7 @@
                     <div class="service-icon">
                         <i class="fas fa-digital-tachograph"></i>
                     </div>
-                    <h3 class="service-title">Transformation Digitale</h3>
+                    <h3 class="service-title" style="color: #3498db;">Transformation Digitale</h3>
                     <p class="service-description">
                         ACHMITECH offre des solutions personnalisées qui permettent aux entreprises de transformer leurs processus et technologies, optimisant ainsi la gestion des ressources numériques.
                     </p>
@@ -292,7 +291,7 @@
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3 class="service-title">Information Technology Outsourcing</h3>
+                    <h3 class="service-title" style="color: #3498db;">Information Technology Outsourcing</h3>
                     <p class="service-description">
                         Notre équipe allie les connaissances juridiques à l'expertise dans les Technologies de l'Information, ce qui permet de développer un travail conjoint avec d'autres spécialistes du secteur.
                     </p>
@@ -305,7 +304,7 @@
                     <div class="service-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3 class="service-title">Data & Cloud</h3>
+                    <h3 class="service-title" style="color: #3498db;">Data & Cloud</h3>
                     <p class="service-description">
                         Nous évaluons votre maturité DATA actuelle et identifions vos besoins pour accroître ou maintenir votre avantage concurrentiel.
                     </p>
@@ -318,7 +317,7 @@
                     <div class="service-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="service-title">Recherche & Innovation</h3>
+                    <h3 class="service-title" style="color: #3498db;">Recherche & Innovation</h3>
                     <p class="service-description">
                         L'innovation n'a plus de limites. Nous vous aidons à vous réinventer pour vous orienter dans le monde d'aujourd'hui.
                     </p>
@@ -331,7 +330,7 @@
                     <div class="service-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3 class="service-title">Business Process Outsourcing</h3>
+                    <h3 class="service-title" style="color: #3498db;">Business Process Outsourcing</h3>
                     <p class="service-description">
                         Vous cherchez à gagner en agilité et à réduire vos coûts de service ? Nous vous accompagnons pour atteindre l'excellence opérationnelle.
                     </p>
@@ -344,7 +343,7 @@
                     <div class="service-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <h3 class="service-title">Agilité & DevOps</h3>
+                    <h3 class="service-title" style="color: #3498db;">Agilité & DevOps</h3>
                     <p class="service-description">
                         ACHMITECH accompagne ses clients dans la mise en place d'organisations agiles et dans l'application des concepts DevOps.
                     </p>
@@ -357,7 +356,7 @@
                     <div class="service-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="service-title">Cybersécurité</h3>
+                    <h3 class="service-title" style="color: #3498db;">Cybersécurité</h3>
                     <p class="service-description">
                         La transformation dépend d'une sécurité sans faille, voilà pourquoi nous mettons l'étendue de notre expertise pour en faire une force.
                     </p>
@@ -370,7 +369,7 @@
                     <div class="service-icon">
                         <i class="fas fa-network-wired"></i>
                     </div>
-                    <h3 class="service-title">Télécom et Infra des Réseaux</h3>
+                    <h3 class="service-title" style="color: #3498db;">Télécom et Infra des Réseaux</h3>
                     <p class="service-description">
                         ACHMITECH propose des solutions personnalisées qui aident les sociétés de télécommunications à contrôler leurs réseaux.
                     </p>
@@ -383,7 +382,8 @@
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="service-title">Gouvernance & Pilotage</h3>
+                    <h3 class="service-title" style="color: #3498db;">Gouvernance & Pilotage</h3>
+
                     <p class="service-description">
                         Simplifiez l'informatique avec des services de modernisation, de protection et de gestion.
                     </p>
@@ -395,73 +395,144 @@
 
 <!-- Footer -->
 <footer class="footer text-white pt-5 pb-4">
-    <div class="container">
-        <div class="row g-4">
-            <!-- Colonne Logo et Filiales -->
-            <div class="col-lg-3 col-md-6 text-center text-md-start">
-                <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" height="60" class="mb-3">
-                <p class="mb-3">Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
-                
-                <h5 class="fw-bold mb-3">NOS FILIALES</h5>
-                <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
-                    <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" height="30">
-                    <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" height="30">
-                </div>
+  <div class="container">
+    <div class="row g-4">
+      <!-- Column 1: Logo & Subsidiaries -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="d-flex flex-column text-center text-md-start h-100">
+          <div class="mb-4">
+            <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
+            <p>Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
+          </div>
+          
+          <div class="mt-auto">
+            <h5 class="fw-bold mb-3">NOS FILIALES</h5>
+            <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
+              <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
+              <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
             </div>
-            
-            <!-- Colonne Liens rapides -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-3">NAVIGATION</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="/" class="text-white text-decoration-none hover-underline">Accueil</a></li>
-                    <li class="mb-2"><a href="/nos-services" class="text-white text-decoration-none hover-underline">Nos Services</a></li>
-                    <li class="mb-2"><a href="/a-propos" class="text-white text-decoration-none hover-underline">A propos</a></li>
-                    <li class="mb-2"><a href="/actualites" class="text-white text-decoration-none hover-underline">Actualités</a></li>
-                    <li class="mb-2"><a href="/carrieres" class="text-white text-decoration-none hover-underline">Carrières</a></li>
-                    <li class="mb-2"><a href="/contact" class="text-white text-decoration-none hover-underline">Contact</a></li>
-                </ul>
-            </div>
-            
-            <!-- Colonne Services -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-3">NOS SERVICES</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Transformation Digitale</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> IT Outsourcing</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Data & Cloud</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Recherche & Innovation</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Business Process Outsourcing</li>
-                    <li class="mb-2"><i class="fas fa-chevron-right me-2 small"></i> Cybersécurité</li>
-                </ul>
-            </div>
-            
-            <!-- Colonne Contact -->
-            <div class="col-lg-3 col-md-6">
-                <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-3"><i class="fas fa-map-marker-alt me-2"></i> Adresse, Ville, Pays</li>
-                    <li class="mb-3"><i class="fas fa-phone-alt me-2"></i> +212 5XX XXX XXX</li>
-                    <li class="mb-3"><i class="fas fa-envelope me-2"></i> contact@achmitech.com</li>
-                </ul>
-                
-                <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
-                <div class="social-icons">
-                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin fs-5 hover-scale"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-5 hover-scale"></i></a>
-                    <a href="#" class="text-white me-3"><i class="bi bi-twitter-x fs-5 hover-scale"></i></a>
-                    <a href="#" class="text-white"><i class="bi bi-instagram fs-5 hover-scale"></i></a>
-                </div>
-            </div>
+          </div>
         </div>
-        
-        <div class="border-top border-light mt-4 pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center">
-            <p class="mb-3 mb-md-0">&copy; 2025 ACHMITECH. Tous droits réservés.</p>
-            <div class="d-flex">
-                <a href="#" class="text-white text-decoration-none me-3 hover-underline">Mentions légales</a>
-                <a href="#" class="text-white text-decoration-none hover-underline">Politique de confidentialité</a>
-            </div>
+      </div>
+      
+      <!-- Column 2: Navigation -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100">
+          <h5 class="fw-bold mb-3">NAVIGATION</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/" class="hover-underline">Accueil</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/nos-services" class="hover-underline">Nos Services</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/a-propos" class="hover-underline">A propos</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/actualites" class="hover-underline">Actualités</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/carrieres" class="hover-underline">Carrières</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/contact" class="hover-underline">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
+      
+      <!-- Column 3: Services -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100">
+          <h5 class="fw-bold mb-3">NOS SERVICES</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Transformation Digitale</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>IT Outsourcing</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Data & Cloud</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Recherche & Innovation</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Business Process Outsourcing</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>Cybersécurité</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Column 4: Contact & Social -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100 d-flex flex-column">
+          <div class="mb-4">
+            <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
+            <ul class="list-unstyled d-flex flex-column gap-3">
+              <li class="d-flex">
+                <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
+                <span>IMM 6 B9, Riad Al Fath, Av. Al Majd, Rabat 10150</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="fas fa-phone-alt me-2" style="width: 16px;"></i>
+                <span>+212 5 37 79 04 70</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="fas fa-envelope me-2" style="width: 16px;"></i>
+                <span>contact@achmitech.com</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="mt-auto">
+            <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
+            <div class="social-icons d-flex">
+              <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
+                <i class="bi bi-linkedin fs-5"></i>
+              </a>
+              <a href="https://www.facebook.com/achmitech" class="hover-scale">
+                <i class="bi bi-facebook fs-5"></i>
+              </a>
+              <a href="https://www.instagram.com/achmitech_official" class="hover-scale">
+                <i class="bi bi-instagram fs-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <!-- Footer Bottom -->
+    <div class="border-top border-secondary mt-4 pt-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
+          &copy; 2025 ACHMITECH. Tous droits réservés.
+        </p>
+        <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
+          <a href="#" class="text-white me-3 hover-underline">Mentions légales</a>
+          <a href="#" class="text-white hover-underline">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <style>
