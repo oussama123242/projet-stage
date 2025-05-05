@@ -14,7 +14,64 @@
             --accent-red: #e74c3c;
             --light-gray: #f8f9fa;
             --dark-gray: #2c3e50;
-        }  .hover-scale {
+            --vers:#19b69e;
+        } 
+         /* Navbar styles */
+         .navbar {
+            transition: all 0.5s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: white !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            animation: fadeInDown 0.5s ease;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        } 
+        /* Style pour le lien actif */
+.nav-item.active .nav-link {
+    color: var(--primary-blue) !important;
+    font-weight: 600;
+}
+
+.nav-item.active .nav-link::after {
+    width: 100% !important;
+    background-color: var(--vers) !important;
+}
+
+/* Style au clic */
+.nav-link:active {
+    color: var(--accent-red) !important;
+}
+
+.nav-link:active::after {
+    background-color: var(--accent-red) !important;
+}
+        
+        .hover-scale {
             transition: transform 0.3s;
         }
         .hover-scale:hover {
@@ -146,6 +203,19 @@
         margin-bottom: 2rem;
       }
     }
+    @media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .nav-item.active .nav-link {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
+}
     </style>
 </head>
 <body>
@@ -154,7 +224,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="images/logo.svg" alt="ACHMITECH" height="40">
+            <img src="images/logo.svg" alt="ACHMITECH" height="60">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
@@ -177,7 +247,7 @@
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">FR</a></li>
                         <li><a class="dropdown-item" href="#">EN</a></li>
-                        <li><a class="dropdown-item" href="#">AR</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -464,6 +534,30 @@
             navbar.classList.remove('scrolled');
         }
     });
+
+    // Active nav item on click
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove active class from all links
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.parentElement.classList.remove('active');
+            });
+            
+            // Add active class to clicked link
+            this.parentElement.classList.add('active');
+        });
+    });
+
+    // Set active item based on current page
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.parentElement.classList.add('active');
+            }
+        });
+    });
 </script>
+
 </body>
 </html>

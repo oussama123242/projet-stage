@@ -103,3 +103,21 @@ Route::post('/candidature', [CandidatureController::class, 'store'])->name('cand
 Route::get('/success', function () {
     return view('success');
 })->name('success');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

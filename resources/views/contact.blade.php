@@ -155,7 +155,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="images/logo.svg" alt="ACHMITECH" height="40" class="animate__animated animate__bounceIn">
+            <img src="images/logo.svg" alt="ACHMITECH" height="60" class="animate__animated animate__bounceIn">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
@@ -178,7 +178,7 @@
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">FR</a></li>
                         <li><a class="dropdown-item" href="#">EN</a></li>
-                        <li><a class="dropdown-item" href="#">AR</a></li>
+                        
                     </ul>
                 </div>
             </div>

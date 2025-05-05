@@ -38,6 +38,7 @@
     padding: 10px 0;
     background-color: white !important;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    animation: fadeInDown 0.5s ease;
 }
 
 .nav-link {
@@ -45,6 +46,7 @@
     padding: 8px 0;
     margin: 0 10px;
     font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .nav-link::after {
@@ -61,6 +63,26 @@
 .nav-link:hover::after {
     width: 100%;
 }
+     /* Style pour le lien actif */
+     .nav-item.active .nav-link {
+    color: var(--primary-blue) !important;
+    font-weight: 600;
+}
+
+.nav-item.active .nav-link::after {
+    width: 100% !important;
+    background-color: var(--vers) !important;
+}
+
+/* Style au clic */
+.nav-link:active {
+    color: var(--accent-red) !important;
+}
+
+.nav-link:active::after {
+    background-color: var(--accent-red) !important;
+}
+  
 
 /* Footer styles */
 .footer {
@@ -135,7 +157,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="images/logo.svg" alt="ACHMITECH" height="40">
+            <img src="images/logo.svg" alt="ACHMITECH" height="60">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
@@ -158,7 +180,7 @@
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="#">FR</a></li>
                         <li><a class="dropdown-item" href="#">EN</a></li>
-                        <li><a class="dropdown-item" href="#">AR</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -652,7 +674,29 @@ h1 {
             navbar.classList.remove('scrolled');
         }
     });
-</script>
 
+    // Active nav item on click
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove active class from all links
+            document.querySelectorAll('.nav-link').forEach(l => {
+                l.parentElement.classList.remove('active');
+            });
+            
+            // Add active class to clicked link
+            this.parentElement.classList.add('active');
+        });
+    });
+
+    // Set active item based on current page
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname;
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === currentPath) {
+                link.parentElement.classList.add('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>
