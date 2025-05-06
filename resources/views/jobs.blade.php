@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     
     <style>
         :root {
@@ -453,27 +456,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link animate__animated animate__fadeInDown animate__fast" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link animate__animated animate__fadeInDown animate__fast" href="/nos-services">Nos Services</a></li>
-                <li class="nav-item"><a class="nav-link animate__animated animate__fadeInDown animate__fast" href="/a-propos">A propos</a></li>
-                <li class="nav-item"><a class="nav-link animate__animated animate__fadeInDown animate__fast" href="/actualites">Actualités</a></li>
-                <li class="nav-item"><a class="nav-link animate__animated animate__fadeInDown animate__fast" href="/carrieres">Carrières</a></li>
-                <li class="nav-item"><a class="nav-link animate__animated animate__fadeInDown animate__fast" href="/rejoignez-nous">Rejoignez-nous</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">@lang("Home")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/nos-services">{{trans("Nos Services")}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/a-propos">@lang("A propos")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/actualites">@lang("Actualités")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/carrieres">@lang("Carrières")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">@lang("Rejoignez-nous")</a></li>
             </ul>
             <div class="d-flex align-items-center gap-3">
-                <a href="/contact" class="btn btn-primary animate__animated animate__fadeInRight animate__fast">Contactez-nous</a>
-                <div class="dropdown animate__animated animate__fadeInRight animate__fast">
-                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                        FR
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">FR</a></li>
-                        <li><a class="dropdown-item" href="#">EN</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
+                <a href="/contact" class="btn btn-primary">@lang("Contactez-nous")</a>
+                <select name="selectLocale" id="selectLocale">
+              
+<option @if(app()->getLocale() == 'fr') selected @endif value="fr">fr</option>
+<option @if(app()->getLocale() == 'en') selected @endif value="en">en</option>
+
+</select>
     </div>
 </nav>
 
@@ -526,146 +523,145 @@
     </div>
 </div>
 
-<!-- Footer -->
 <footer class="footer text-white pt-5 pb-4">
-    <div class="container">
-        <div class="row g-4">
-            <!-- Column 1: Logo & Subsidiaries -->
-            <div class="col-lg-3 col-md-6 d-flex flex-column">
-                <div class="d-flex flex-column text-center text-md-start h-100">
-                    <div class="mb-4">
-                        <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
-                        <p>Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
-                    </div>
-                    
-                    <div class="mt-auto">
-                        <h5 class="fw-bold mb-3">NOS FILIALES</h5>
-                        <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
-                            <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
-                            <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row g-4">
+      <!-- Column 1: Logo & Subsidiaries -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="d-flex flex-column text-center text-md-start h-100">
+          <div class="mb-4">
+            <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
+            <p>@lang('Votre partenaire technologique pour l\'innovation et la transformation digitale.')</p>
+          </div>
+          
+          <div class="mt-auto">
+            <h5 class="fw-bold mb-3">@lang('NOS FILIALES')</h5>
+            <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
+              <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
+              <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
             </div>
-            
-            <!-- Column 2: Navigation -->
-            <div class="col-lg-3 col-md-6 d-flex flex-column">
-                <div class="h-100">
-                    <h5 class="fw-bold mb-3">NAVIGATION</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <a href="/" class="hover-underline">Accueil</a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <a href="/nos-services" class="hover-underline">Nos Services</a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <a href="/a-propos" class="hover-underline">A propos</a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <a href="/actualites" class="hover-underline">Actualités</a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <a href="/carrieres" class="hover-underline">Carrières</a>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <a href="/contact" class="hover-underline">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Column 3: Services -->
-            <div class="col-lg-3 col-md-6 d-flex flex-column">
-                <div class="h-100">
-                    <h5 class="fw-bold mb-3">NOS SERVICES</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <span>Transformation Digitale</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <span>IT Outsourcing</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <span>Data & Cloud</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <span>Recherche & Innovation</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <span>Business Process Outsourcing</span>
-                        </li>
-                        <li class="d-flex align-items-center">
-                            <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-                            <span>Cybersécurité</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Column 4: Contact & Social -->
-            <div class="col-lg-3 col-md-6 d-flex flex-column">
-                <div class="h-100 d-flex flex-column">
-                    <div class="mb-4">
-                        <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
-                        <ul class="list-unstyled d-flex flex-column gap-3">
-                            <li class="d-flex">
-                                <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
-                                <span>IMM 6 B9, Riad Al Fath, Av. Al Majd, Rabat 10150</span>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <i class="fas fa-phone-alt me-2" style="width: 16px;"></i>
-                                <span>+212 5 37 79 04 70</span>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <i class="fas fa-envelope me-2" style="width: 16px;"></i>
-                                <span>contact@achmitech.com</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="mt-auto">
-                        <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
-                        <div class="social-icons d-flex">
-                            <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
-                                <i class="bi bi-linkedin fs-5"></i>
-                            </a>
-                            <a href="https://www.facebook.com/achmitech" class="hover-scale">
-                                <i class="bi bi-facebook fs-5"></i>
-                            </a>
-                            <a href="https://www.instagram.com/achmitech_official" class="hover-scale">
-                                <i class="bi bi-instagram fs-5"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        
-        <!-- Footer Bottom -->
-        <div class="border-top border-secondary mt-4 pt-4">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
-                <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
-                    &copy; 2025 ACHMITECH. Tous droits réservés.
-                </p>
-                <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
-                    <a href="#" class="text-white me-3 hover-underline">Mentions légales</a>
-                    <a href="#" class="text-white hover-underline">Politique de confidentialité</a>
-                </div>
-            </div>
+      </div>
+      
+      <!-- Column 2: Navigation -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100">
+          <h5 class="fw-bold mb-3">@lang('NAVIGATION')</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/" class="hover-underline">@lang('Accueil')</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/nos-services" class="hover-underline">@lang('Nos Services')</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/a-propos" class="hover-underline">@lang('A propos')</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/actualites" class="hover-underline">@lang('Actualités')</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/carrieres" class="hover-underline">@lang('Carrières')</a>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <a href="/contact" class="hover-underline">@lang('Contact')</a>
+            </li>
+          </ul>
         </div>
+      </div>
+      
+      <!-- Column 3: Services -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100">
+          <h5 class="fw-bold mb-3">@lang('NOS SERVICES')</h5>
+          <ul class="list-unstyled d-flex flex-column gap-2">
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>@lang('Transformation Digitale')</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>@lang('IT Outsourcing')</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>@lang('Data & Cloud')</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>@lang('Recherche & Innovation')</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>@lang('Business Process Outsourcing')</span>
+            </li>
+            <li class="d-flex align-items-center">
+              <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
+              <span>@lang('Cybersécurité')</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Column 4: Contact & Social -->
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="h-100 d-flex flex-column">
+          <div class="mb-4">
+            <h5 class="fw-bold mb-3">@lang('CONTACTEZ-NOUS')</h5>
+            <ul class="list-unstyled d-flex flex-column gap-3">
+              <li class="d-flex">
+                <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
+                <span>IMM 6 B9, Riad Al Fath, Av. Al Majd, Rabat 10150</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="fas fa-phone-alt me-2" style="width: 16px;"></i>
+                <span>+212 5 37 79 04 70</span>
+              </li>
+              <li class="d-flex align-items-center">
+                <i class="fas fa-envelope me-2" style="width: 16px;"></i>
+                <span>contact@achmitech.com</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="mt-auto">
+            <h5 class="fw-bold mb-3">@lang('SUIVEZ-NOUS')</h5>
+            <div class="social-icons d-flex">
+              <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
+                <i class="bi bi-linkedin fs-5"></i>
+              </a>
+              <a href="https://www.facebook.com/achmitech" class="hover-scale">
+                <i class="bi bi-facebook fs-5"></i>
+              </a>
+              <a href="https://www.instagram.com/achmitech_official" class="hover-scale">
+                <i class="bi bi-instagram fs-5"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <!-- Footer Bottom -->
+    <div class="border-top border-secondary mt-4 pt-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
+          &copy; 2025 ACHMITECH. @lang('Tous droits réservés.')
+        </p>
+        <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
+          <a href="#" class="text-white me-3 hover-underline">@lang('Mentions légales')</a>
+          <a href="#" class="text-white hover-underline">@lang('Politique de confidentialité')</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -742,6 +738,11 @@
         floatImage();
     });
 </script>
-
+<script>
+  $("#selectLocale").on('change',function(){
+    var locale = $(this).val();
+    window.location.href="/changeLocale/"+locale;
+  })
+</script>
 </body>
 </html>

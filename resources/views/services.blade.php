@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root {
       --primary-blue:rgb(0, 0, 0);
@@ -253,27 +261,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
-                <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
-                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">@lang("Home")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/nos-services">{{trans("Nos Services")}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/a-propos">@lang("A propos")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/actualites">@lang("Actualités")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/carrieres">@lang("Carrières")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">@lang("Rejoignez-nous")</a></li>
             </ul>
             <div class="d-flex align-items-center gap-3">
-                <a href="/contact" class="btn btn-primary">Contactez-nous</a>
-                <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                        FR
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">FR</a></li>
-                        <li><a class="dropdown-item" href="#">EN</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
+                <a href="/contact" class="btn btn-primary">@lang("Contactez-nous")</a>
+                <select name="selectLocale" id="selectLocale">
+              
+<option @if(app()->getLocale() == 'fr') selected @endif value="fr">fr</option>
+<option @if(app()->getLocale() == 'en') selected @endif value="en">en</option>
+
+</select>
     </div>
 </nav>
 
@@ -281,15 +283,17 @@
 <section class="hero-section">
     <div class="container">
         <br><br><br><br><br>
-        <h1 class="animate__animated animate__fadeInDown">Accédez au meilleur de la technologie</h1>
-        <p class="animate__animated animate__fadeIn animate__delay-1s">ACHMITECH propose une large gamme de services clés en main. Bénéficiez de l'expertise de nos équipes ou choisissez-nous comme partenaire privilégié pour vos projets.</p>
+        <h1 class="animate__animated animate__fadeInDown">@lang('Accédez au meilleur de la technologie')</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">
+            @lang('ACHMITECH propose une large gamme de services clés en main. Bénéficiez de l\'expertise de nos équipes ou choisissez-nous comme partenaire privilégié pour vos projets.')
+        </p>
     </div>
 </section>
 
 <!-- Services Section -->
 <section class="services-section">
     <div class="container">
-        <h2 class="section-title text-center animate__animated animate__fadeIn" style="color: #3498db;">NOS SERVICES</h2>
+        <h2 class="section-title text-center animate__animated animate__fadeIn" style="color: #3498db;">@lang('NOS SERVICES')</h2>
         
         <div class="row g-4">
             <!-- Service 1 -->
@@ -298,9 +302,9 @@
                     <div class="service-icon">
                         <i class="fas fa-digital-tachograph"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Transformation Digitale</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Transformation Digitale')</h3>
                     <p class="service-description">
-                        ACHMITECH offre des solutions personnalisées qui permettent aux entreprises de transformer leurs processus et technologies, optimisant ainsi la gestion des ressources numériques.
+                        @lang('ACHMITECH offre des solutions personnalisées qui permettent aux entreprises de transformer leurs processus et technologies, optimisant ainsi la gestion des ressources numériques.')
                     </p>
                 </div>
             </div>
@@ -311,9 +315,9 @@
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Information Technology Outsourcing</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Information Technology Outsourcing')</h3>
                     <p class="service-description">
-                        Notre équipe allie les connaissances juridiques à l'expertise dans les Technologies de l'Information, ce qui permet de développer un travail conjoint avec d'autres spécialistes du secteur.
+                        @lang('Notre équipe allie les connaissances juridiques à l\'expertise dans les Technologies de l\'Information, ce qui permet de développer un travail conjoint avec d\'autres spécialistes du secteur.')
                     </p>
                 </div>
             </div>
@@ -324,9 +328,9 @@
                     <div class="service-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Data & Cloud</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Data & Cloud')</h3>
                     <p class="service-description">
-                        Nous évaluons votre maturité DATA actuelle et identifions vos besoins pour accroître ou maintenir votre avantage concurrentiel.
+                        @lang('Nous évaluons votre maturité DATA actuelle et identifions vos besoins pour accroître ou maintenir votre avantage concurrentiel.')
                     </p>
                 </div>
             </div>
@@ -337,9 +341,9 @@
                     <div class="service-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Recherche & Innovation</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Recherche & Innovation')</h3>
                     <p class="service-description">
-                        L'innovation n'a plus de limites. Nous vous aidons à vous réinventer pour vous orienter dans le monde d'aujourd'hui.
+                        @lang('L\'innovation n\'a plus de limites. Nous vous aidons à vous réinventer pour vous orienter dans le monde d\'aujourd\'hui.')
                     </p>
                 </div>
             </div>
@@ -350,9 +354,9 @@
                     <div class="service-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Business Process Outsourcing</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Business Process Outsourcing')</h3>
                     <p class="service-description">
-                        Vous cherchez à gagner en agilité et à réduire vos coûts de service ? Nous vous accompagnons pour atteindre l'excellence opérationnelle.
+                        @lang('Vous cherchez à gagner en agilité et à réduire vos coûts de service ? Nous vous accompagnons pour atteindre l\'excellence opérationnelle.')
                     </p>
                 </div>
             </div>
@@ -363,9 +367,9 @@
                     <div class="service-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Agilité & DevOps</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Agilité & DevOps')</h3>
                     <p class="service-description">
-                        ACHMITECH accompagne ses clients dans la mise en place d'organisations agiles et dans l'application des concepts DevOps.
+                        @lang('ACHMITECH accompagne ses clients dans la mise en place d\'organisations agiles et dans l\'application des concepts DevOps.')
                     </p>
                 </div>
             </div>
@@ -376,9 +380,9 @@
                     <div class="service-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Cybersécurité</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Cybersécurité')</h3>
                     <p class="service-description">
-                        La transformation dépend d'une sécurité sans faille, voilà pourquoi nous mettons l'étendue de notre expertise pour en faire une force.
+                        @lang('La transformation dépend d\'une sécurité sans faille, voilà pourquoi nous mettons l\'étendue de notre expertise pour en faire une force.')
                     </p>
                 </div>
             </div>
@@ -389,9 +393,9 @@
                     <div class="service-icon">
                         <i class="fas fa-network-wired"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Télécom et Infra des Réseaux</h3>
+                    <h3 class="service-title" style="color: #3498db;">@lang('Télécom et Infra des Réseaux')</h3>
                     <p class="service-description">
-                        ACHMITECH propose des solutions personnalisées qui aident les sociétés de télécommunications à contrôler leurs réseaux.
+                        @lang('ACHMITECH propose des solutions personnalisées qui aident les sociétés de télécommunications à contrôler leurs réseaux.')
                     </p>
                 </div>
             </div>
@@ -402,10 +406,9 @@
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="service-title" style="color: #3498db;">Gouvernance & Pilotage</h3>
-
+                    <h3 class="service-title" style="color: #3498db;">@lang('Gouvernance & Pilotage')</h3>
                     <p class="service-description">
-                        Simplifiez l'informatique avec des services de modernisation, de protection et de gestion.
+                        @lang('Simplifiez l\'informatique avec des services de modernisation, de protection et de gestion.')
                     </p>
                 </div>
             </div>
@@ -422,11 +425,11 @@
         <div class="d-flex flex-column text-center text-md-start h-100">
           <div class="mb-4">
             <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
-            <p>Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
+            <p>@lang('Votre partenaire technologique pour l\'innovation et la transformation digitale.')</p>
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">NOS FILIALES</h5>
+            <h5 class="fw-bold mb-3">@lang('NOS FILIALES')</h5>
             <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
               <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
               <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
@@ -438,31 +441,31 @@
       <!-- Column 2: Navigation -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NAVIGATION</h5>
+          <h5 class="fw-bold mb-3">@lang('NAVIGATION')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/" class="hover-underline">Accueil</a>
+              <a href="/" class="hover-underline">@lang('Accueil')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/nos-services" class="hover-underline">Nos Services</a>
+              <a href="/nos-services" class="hover-underline">@lang('Nos Services')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/a-propos" class="hover-underline">A propos</a>
+              <a href="/a-propos" class="hover-underline">@lang('A propos')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/actualites" class="hover-underline">Actualités</a>
+              <a href="/actualites" class="hover-underline">@lang('Actualités')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/carrieres" class="hover-underline">Carrières</a>
+              <a href="/carrieres" class="hover-underline">@lang('Carrières')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/contact" class="hover-underline">Contact</a>
+              <a href="/contact" class="hover-underline">@lang('Contact')</a>
             </li>
           </ul>
         </div>
@@ -471,31 +474,31 @@
       <!-- Column 3: Services -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NOS SERVICES</h5>
+          <h5 class="fw-bold mb-3">@lang('NOS SERVICES')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Transformation Digitale</span>
+              <span>@lang('Transformation Digitale')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>IT Outsourcing</span>
+              <span>@lang('IT Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Data & Cloud</span>
+              <span>@lang('Data & Cloud')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Recherche & Innovation</span>
+              <span>@lang('Recherche & Innovation')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Business Process Outsourcing</span>
+              <span>@lang('Business Process Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Cybersécurité</span>
+              <span>@lang('Cybersécurité')</span>
             </li>
           </ul>
         </div>
@@ -505,7 +508,7 @@
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100 d-flex flex-column">
           <div class="mb-4">
-            <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('CONTACTEZ-NOUS')</h5>
             <ul class="list-unstyled d-flex flex-column gap-3">
               <li class="d-flex">
                 <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
@@ -523,7 +526,7 @@
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('SUIVEZ-NOUS')</h5>
             <div class="social-icons d-flex">
               <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
                 <i class="bi bi-linkedin fs-5"></i>
@@ -544,11 +547,11 @@
     <div class="border-top border-secondary mt-4 pt-4">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
         <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
-          &copy; 2025 ACHMITECH. Tous droits réservés.
+          &copy; 2025 ACHMITECH. @lang('Tous droits réservés.')
         </p>
         <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
-          <a href="#" class="text-white me-3 hover-underline">Mentions légales</a>
-          <a href="#" class="text-white hover-underline">Politique de confidentialité</a>
+          <a href="#" class="text-white me-3 hover-underline">@lang('Mentions légales')</a>
+          <a href="#" class="text-white hover-underline">@lang('Politique de confidentialité')</a>
         </div>
       </div>
     </div>
@@ -656,6 +659,12 @@
             }
         });
     });
+</script>
+<script>
+  $("#selectLocale").on('change',function(){
+    var locale = $(this).val();
+    window.location.href="/changeLocale/"+locale;
+  })
 </script>
 </body>
 </html>

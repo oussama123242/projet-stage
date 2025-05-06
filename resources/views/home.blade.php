@@ -7,6 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <style>
      :root {
             --primary-blue: rgb(0, 0, 0);
@@ -229,27 +232,25 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
-                <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
-                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">@lang("Home")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/nos-services">{{trans("Nos Services")}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/a-propos">@lang("A propos")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/actualites">@lang("Actualités")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/carrieres">@lang("Carrières")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">@lang("Rejoignez-nous")</a></li>
             </ul>
             <div class="d-flex align-items-center gap-3">
-                <a href="/contact" class="btn btn-primary">Contactez-nous</a>
-                <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                        FR
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">FR</a></li>
-                        <li><a class="dropdown-item" href="#">EN</a></li>
-                        
-                    </ul>
-                </div>
+                <a href="/contact" class="btn btn-primary">@lang("Contactez-nous")</a>
+                <select name="selectLocale" id="selectLocale">
+              
+<option @if(app()->getLocale() == 'fr') selected @endif value="fr">fr</option>
+<option @if(app()->getLocale() == 'en') selected @endif value="en">en</option>
+
+</select>
+
             </div>
         </div>
     </div>
@@ -261,9 +262,9 @@
         <div class="row h-100 align-items-center">
             <div class="col-12 text-center text-white">
                 <h1 class="display-3 fw-bold mb-3">ACHMITECH</h1>
-                <h2 class="display-5 mb-4">Votre Partenaire</h2>
-                <p class="display-6 fw-bold mb-5">En Transformation Digitale !</p>
-                <a href="/nos-services" class="btn btn-light text-primary fw-bold py-3 px-5 rounded">Découvrir nos services</a>
+                <h2 class="display-5 mb-4">@lang('Votre Partenaire')</h2>
+                <p class="display-6 fw-bold mb-5">@lang('En Transformation Digitale !')</p>
+                <a href="/nos-services" class="btn btn-light text-primary fw-bold py-3 px-5 rounded">@lang('Découvrir nos services')</a>
             </div>
         </div>
     </div>
@@ -272,14 +273,13 @@
 <!-- Services Highlights -->
 <section class="py-5 bg-white">
     <div class="container py-5">
-        <h2 class="text-center display-5 fw-bold mb-5">Chez ACHMITECH, votre avenir vous appartient</h2>
+        <h2 class="text-center display-5 fw-bold mb-5">@lang('Chez ACHMITECH, votre avenir vous appartient')</h2>
         <div class="row g-4">
             <!-- Card 1 -->
             <div class="col-md-4">
                 <div class="bg-light p-4 rounded shadow-sm h-100 position-relative group">
-                    
-                    <h3 class="text-center fs-4 fw-semibold mb-3">Votre carrière chez ACHMITECH</h3>
-                    <p class="text-muted">Expert reconnu de la transformation et de l'innovation digitale, ACHMITECH vous offre la possibilité d'exprimer toutes vos capacités, de relever les défis les plus variés et de participer à l'invention des solutions transformantes de l'avenir.</p>
+                    <h3 class="text-center fs-4 fw-semibold mb-3">@lang('Votre carrière chez ACHMITECH')</h3>
+                    <p class="text-muted">@lang('Expert reconnu de la transformation et de l\'innovation digitale, ACHMITECH vous offre la possibilité d\'exprimer toutes vos capacités, de relever les défis les plus variés et de participer à l\'invention des solutions transformantes de l\'avenir.')</p>
                     <div class="position-absolute bottom-3 end-3">
                         <a href="/carrieres" class="text-primary transition-all duration-300">
                             <i class="bi bi-arrow-up-right-circle fs-4 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
@@ -291,22 +291,21 @@
             <!-- Card 2 -->
             <div class="col-md-4">
                 <div class="bg-light p-4 rounded shadow-sm h-100 position-relative group">
-                    
-                    <h3 class="text-center fs-4 fw-semibold mb-3">Ensemble, construisons votre avenir</h3>
-                    <p class="text-muted">Retrouvez plus d'information sur notre environnement de travail stimulant et les opportunités que nous proposons à nos collaborateurs pour accélérer leur développement professionnel et personnel. Chez ACHMITECH, nous sommes guidés par 4 pilliers pour bâtir des relations.</p>
+                    <h3 class="text-center fs-4 fw-semibold mb-3">@lang('Ensemble, construisons votre avenir')</h3>
+                    <p class="text-muted">@lang('Retrouvez plus d\'information sur notre environnement de travail stimulant et les opportunités que nous proposons à nos collaborateurs pour accélérer leur développement professionnel et personnel. Chez ACHMITECH, nous sommes guidés par 4 pilliers pour bâtir des relations.')</p>
                     <div class="position-absolute bottom-3 end-3">
                         <a href="/carrieres" class="text-primary transition-all duration-300">
                             <i class="bi bi-arrow-up-right-circle fs-4 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
                         </a>
-                    </div><br><br>
+                    </div>
                 </div>
             </div>
             
             <!-- Card 3 -->
             <div class="col-md-4">
                 <div class="bg-light p-4 rounded shadow-sm h-100 position-relative group">
-                    <h3 class="text-center fs-4 fw-semibold mb-3">La culture d'ACHMITECH</h3>
-                    <p class="text-muted">Notre culture est essentielle au succès de nos projets et à la pérennité de notre entreprise. Nous sommes animés par nos valeurs et engagés dans chacune de nos missions. Elles guident nos actions et nous permettent d'aller de l'avant, découvrez nos valeurs.</p>
+                    <h3 class="text-center fs-4 fw-semibold mb-3">@lang('La culture d\'ACHMITECH')</h3>
+                    <p class="text-muted">@lang('Notre culture est essentielle au succès de nos projets et à la pérennité de notre entreprise. Nous sommes animés par nos valeurs et engagés dans chacune de nos missions. Elles guident nos actions et nous permettent d\'aller de l\'avant, découvrez nos valeurs.')</p>
                     <div class="position-absolute bottom-3 end-3">
                         <a href="/carrieres" class="text-primary transition-all duration-300">
                             <i class="bi bi-arrow-up-right-circle fs-4 group-hover:translate-x-1 group-hover:-translate-y-1"></i>
@@ -324,17 +323,17 @@
         <div class="row align-items-center">
             <!-- Text content column -->
             <div class="col-lg-6 mb-4 mb-lg-0">
-                <h2 class="display-6 fw-bold mb-4">Qui sommes-nous ?</h2>
-                <p class="text-muted mb-3">ACHMITECH est une entreprise innovante spécialisée dans la transformation digitale des entreprises.</p>
-                <p class="text-muted mb-4">Fondée en 2021, nous accompagnons nos clients dans leur transition numérique avec des solutions sur-mesure et des technologies de pointe.</p>
-                <a href="/a-propos" class="btn btn-primary px-4 py-2">En savoir plus</a>
+                <h2 class="display-6 fw-bold mb-4">@lang('Qui sommes-nous ?')</h2>
+                <p class="text-muted mb-3">@lang('ACHMITECH est une entreprise innovante spécialisée dans la transformation digitale des entreprises.')</p>
+                <p class="text-muted mb-4">@lang('Fondée en 2021, nous accompagnons nos clients dans leur transition numérique avec des solutions sur-mesure et des technologies de pointe.')</p>
+                <a href="/a-propos" class="btn btn-primary px-4 py-2">@lang('En savoir plus')</a>
             </div>
             
             <!-- Image column -->
             <div class="col-lg-6">
                 <div class="d-flex justify-content-center">
                     <img src="images/WhatsApp Image 2025-05-02 à 19.55.25_0eae4795.jpg" 
-                         alt="Équipe ACHMITECH" 
+                         alt="@lang('Équipe ACHMITECH')" 
                          class="img-fluid rounded shadow"
                          style="max-width: 900px; width: 100%; height: auto;">
                 </div>
@@ -346,26 +345,26 @@
 <!-- News Section -->
 <section class="py-5 bg-white">
     <div class="container py-5">
-        <h2 class="text-center display-5 fw-bold mb-5">Nos Dernières Actualités</h2>
+        <h2 class="text-center display-5 fw-bold mb-5">@lang('Nos Dernières Actualités')</h2>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="bg-white rounded shadow-sm overflow-hidden">
-                    <img src="{{ asset('images/WhatsApp Image 2025-05-02 à 19.55.52_d0d42fec.jpg') }}" alt="Actualité 1" class="img-fluid w-100 " style="height: 300px; object-fit: cover;">
+                    <img src="{{ asset('images/WhatsApp Image 2025-05-02 à 19.55.52_d0d42fec.jpg') }}" alt="@lang('Actualité 1')" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="bg-white rounded shadow-sm overflow-hidden">
-                    <img src="{{ asset('images/WhatsApp Image 2025-05-02 à 19.56.19_2e669813.jpg') }}" alt="Actualité 2" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
+                    <img src="{{ asset('images/WhatsApp Image 2025-05-02 à 19.56.19_2e669813.jpg') }}" alt="@lang('Actualité 2')" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="bg-white  rounded shadow-sm overflow-hidden">
-                    <img src="{{ asset('images/WhatsApp Image 2025-05-02 à 19.56.17_e95dc39a.jpg') }}" alt="Actualité 3" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
+                <div class="bg-white rounded shadow-sm overflow-hidden">
+                    <img src="{{ asset('images/WhatsApp Image 2025-05-02 à 19.56.17_e95dc39a.jpg') }}" alt="@lang('Actualité 3')" class="img-fluid w-100" style="height: 300px; object-fit: cover;">
                 </div>
             </div>
         </div>
         <div class="text-center mt-5">
-            <a href="/actualites" class="btn btn-primary px-4 py-2">Voir toutes les actualités</a>
+            <a href="/actualites" class="btn btn-primary px-4 py-2">@lang('Voir toutes les actualités')</a>
         </div>
     </div>
 </section>
@@ -373,9 +372,9 @@
 <!-- CTA Section -->
 <section class="py-5 bg-primary text-white">
     <div class="container py-5 text-center">
-        <h2 class="display-6 fw-bold mb-4">Vous souhaitez rejoindre notre équipe ?</h2>
-        <p class="fs-5 mb-5 mx-auto" style="max-width: 600px;">Nous recherchons des talents passionnés pour accompagner notre croissance.</p>
-        <a href="/rejoignez-nous" class="btn btn-light text-primary fw-bold px-5 py-3">Voir nos offres d'emploi</a>
+        <h2 class="display-6 fw-bold mb-4">@lang('Vous souhaitez rejoindre notre équipe ?')</h2>
+        <p class="fs-5 mb-5 mx-auto" style="max-width: 600px;">@lang('Nous recherchons des talents passionnés pour accompagner notre croissance.')</p>
+        <a href="/rejoignez-nous" class="btn btn-light text-primary fw-bold px-5 py-3">@lang('Voir nos offres d\'emploi')</a>
     </div>
 </section>
 
@@ -388,11 +387,11 @@
         <div class="d-flex flex-column text-center text-md-start h-100">
           <div class="mb-4">
             <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
-            <p>Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
+            <p>@lang('Votre partenaire technologique pour l\'innovation et la transformation digitale.')</p>
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">NOS FILIALES</h5>
+            <h5 class="fw-bold mb-3">@lang('NOS FILIALES')</h5>
             <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
               <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
               <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
@@ -404,31 +403,31 @@
       <!-- Column 2: Navigation -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NAVIGATION</h5>
+          <h5 class="fw-bold mb-3">@lang('NAVIGATION')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/" class="hover-underline">Accueil</a>
+              <a href="/" class="hover-underline">@lang('Accueil')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/nos-services" class="hover-underline">Nos Services</a>
+              <a href="/nos-services" class="hover-underline">@lang('Nos Services')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/a-propos" class="hover-underline">A propos</a>
+              <a href="/a-propos" class="hover-underline">@lang('A propos')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/actualites" class="hover-underline">Actualités</a>
+              <a href="/actualites" class="hover-underline">@lang('Actualités')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/carrieres" class="hover-underline">Carrières</a>
+              <a href="/carrieres" class="hover-underline">@lang('Carrières')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/contact" class="hover-underline">Contact</a>
+              <a href="/contact" class="hover-underline">@lang('Contact')</a>
             </li>
           </ul>
         </div>
@@ -437,31 +436,31 @@
       <!-- Column 3: Services -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NOS SERVICES</h5>
+          <h5 class="fw-bold mb-3">@lang('NOS SERVICES')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Transformation Digitale</span>
+              <span>@lang('Transformation Digitale')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>IT Outsourcing</span>
+              <span>@lang('IT Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Data & Cloud</span>
+              <span>@lang('Data & Cloud')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Recherche & Innovation</span>
+              <span>@lang('Recherche & Innovation')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Business Process Outsourcing</span>
+              <span>@lang('Business Process Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Cybersécurité</span>
+              <span>@lang('Cybersécurité')</span>
             </li>
           </ul>
         </div>
@@ -471,7 +470,7 @@
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100 d-flex flex-column">
           <div class="mb-4">
-            <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('CONTACTEZ-NOUS')</h5>
             <ul class="list-unstyled d-flex flex-column gap-3">
               <li class="d-flex">
                 <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
@@ -489,7 +488,7 @@
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('SUIVEZ-NOUS')</h5>
             <div class="social-icons d-flex">
               <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
                 <i class="bi bi-linkedin fs-5"></i>
@@ -510,11 +509,11 @@
     <div class="border-top border-secondary mt-4 pt-4">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
         <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
-          &copy; 2025 ACHMITECH. Tous droits réservés.
+          &copy; 2025 ACHMITECH. @lang('Tous droits réservés.')
         </p>
         <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
-          <a href="#" class="text-white me-3 hover-underline">Mentions légales</a>
-          <a href="#" class="text-white hover-underline">Politique de confidentialité</a>
+          <a href="#" class="text-white me-3 hover-underline">@lang('Mentions légales')</a>
+          <a href="#" class="text-white hover-underline">@lang('Politique de confidentialité')</a>
         </div>
       </div>
     </div>
@@ -558,6 +557,11 @@
         });
     });
 </script>
-
+<script>
+  $("#selectLocale").on('change',function(){
+    var locale = $(this).val();
+    window.location.href="/changeLocale/"+locale;
+  })
+</script>
 </body>
 </html>

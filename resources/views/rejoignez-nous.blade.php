@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     
     <style>
       :root {
@@ -305,27 +308,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
-                <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
-                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">@lang("Home")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/nos-services">{{trans("Nos Services")}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/a-propos">@lang("A propos")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/actualites">@lang("Actualités")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/carrieres">@lang("Carrières")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">@lang("Rejoignez-nous")</a></li>
             </ul>
             <div class="d-flex align-items-center gap-3">
-                <a href="/contact" class="btn btn-primary">Contactez-nous</a>
-                <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                        FR
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">FR</a></li>
-                        <li><a class="dropdown-item" href="#">EN</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
+                <a href="/contact" class="btn btn-primary">@lang("Contactez-nous")</a>
+                <select name="selectLocale" id="selectLocale">
+              
+<option @if(app()->getLocale() == 'fr') selected @endif value="fr">fr</option>
+<option @if(app()->getLocale() == 'en') selected @endif value="en">en</option>
+
+</select>
     </div>
 </nav>
 <br><br><br><br>
@@ -333,14 +330,14 @@
 <!-- SECTION: Dernières Offres -->
 <section class="offres-section py-5" style="background-color: #f8f9fc;">
   <div class="container">
-    <h2 class="text-center display-5 fw-bold mb-5 text-primary animate__animated animate__fadeIn">DERNIÈRES OFFRES</h2>
+    <h2 class="text-center display-5 fw-bold mb-5 text-primary animate__animated animate__fadeIn">@lang('DERNIÈRES OFFRES')</h2>
     
     <!-- Formulaire qui remplace complètement les offres -->
     <div id="formContainer">
       <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3>Postuler pour: <span id="offreTitle" class="text-primary"></span></h3>
+        <h3>@lang('Postuler pour'): <span id="offreTitle" class="text-primary"></span></h3>
         <button id="closeForm" class="btn btn-outline-secondary">
-          <i class="fas fa-times"></i> Fermer
+          <i class="fas fa-times"></i> @lang('Fermer')
         </button>
       </div>
       
@@ -350,104 +347,104 @@
         
         <!-- Étape 1 -->
         <div class="step active" id="step-1">
-          <h4>Informations personnelles</h4>
+          <h4>@lang('Informations personnelles')</h4>
           <div class="row mb-3">
             <div class="col">
-              <label>Prénom</label>
+              <label>@lang('Prénom')</label>
               <input type="text" name="prenom" class="form-control" required>
             </div>
             <div class="col">
-              <label>Nom</label>
+              <label>@lang('Nom')</label>
               <input type="text" name="nom" class="form-control" required>
             </div>
           </div>
 
           <div class="row mb-3">
             <div class="col">
-              <label>Email</label>
+              <label>@lang('Email')</label>
               <input type="email" name="email" class="form-control" required>
             </div>
             <div class="col">
-              <label>Téléphone</label>
+              <label>@lang('Téléphone')</label>
               <input type="text" name="telephone" class="form-control" required>
             </div>
           </div>
 
           <div class="mb-3">
-            <label>CV (PDF uniquement)</label>
+            <label>@lang('CV (PDF uniquement)')</label>
             <input type="file" name="cv" class="form-control" required>
           </div>
 
           <div class="row mb-3">
             <div class="col">
-              <label>Salaire actuel</label>
+              <label>@lang('Salaire actuel')</label>
               <input type="text" name="salaire_actuel" class="form-control">
             </div>
             <div class="col">
-              <label>Prétention salariale</label>
+              <label>@lang('Prétention salariale')</label>
               <input type="text" name="pretention" class="form-control">
             </div>
           </div>
 
-          <button type="button" class="btn btn-primary" onclick="nextStep()">Suivant</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()">@lang('Suivant')</button>
         </div>
 
         <!-- Étape 2 -->
         <div class="step" id="step-2">
-          <h4>Formation</h4>
+          <h4>@lang('Formation')</h4>
           <div class="row mb-3">
             <div class="col">
-              <label>Diplôme</label>
+              <label>@lang('Diplôme')</label>
               <input type="text" name="diplome" class="form-control" required>
             </div>
             <div class="col">
-              <label>École</label>
+              <label>@lang('École')</label>
               <input type="text" name="ecole" class="form-control" required>
             </div>
           </div>
 
           <div class="row mb-3">
             <div class="col">
-              <label>Date début formation</label>
+              <label>@lang('Date début formation')</label>
               <input type="date" name="date_debut_formation" class="form-control" required>
             </div>
             <div class="col">
-              <label>Date fin formation</label>
+              <label>@lang('Date fin formation')</label>
               <input type="date" name="date_fin_formation" class="form-control" required>
             </div>
           </div>
 
-          <button type="button" class="btn btn-secondary" onclick="prevStep()">Précédent</button>
-          <button type="button" class="btn btn-primary" onclick="nextStep()">Suivant</button>
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">@lang('Précédent')</button>
+          <button type="button" class="btn btn-primary" onclick="nextStep()">@lang('Suivant')</button>
         </div>
 
         <!-- Étape 3 -->
         <div class="step" id="step-3">
-          <h4>Expérience</h4>
+          <h4>@lang('Expérience')</h4>
           <div class="row mb-3">
             <div class="col">
-              <label>Poste</label>
+              <label>@lang('Poste')</label>
               <input type="text" name="poste_experience" class="form-control" required>
             </div>
             <div class="col">
-              <label>Entreprise</label>
+              <label>@lang('Entreprise')</label>
               <input type="text" name="entreprise" class="form-control" required>
             </div>
           </div>
 
           <div class="row mb-3">
             <div class="col">
-              <label>Date début expérience</label>
+              <label>@lang('Date début expérience')</label>
               <input type="date" name="date_debut_experience" class="form-control" required>
             </div>
             <div class="col">
-              <label>Date fin expérience</label>
+              <label>@lang('Date fin expérience')</label>
               <input type="date" name="date_fin_experience" class="form-control" required>
             </div>
           </div>
 
-          <button type="button" class="btn btn-secondary" onclick="prevStep()">Précédent</button>
-          <button type="submit" class="btn btn-success">Soumettre la candidature</button>
+          <button type="button" class="btn btn-secondary" onclick="prevStep()">@lang('Précédent')</button>
+          <button type="submit" class="btn btn-success">@lang('Soumettre la candidature')</button>
         </div>
       </form>
     </div>
@@ -460,13 +457,13 @@
             <!-- Offre 1 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-1">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Consultant Path Management</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Consultant Path Management')</h5>
                 <p class="offre-desc">
-                  Vous êtes passionné par le management de projet et les systèmes complexes ? Intégrez une équipe dynamique pour piloter des solutions de gestion de parcours innovantes.
+                  @lang('Vous êtes passionné par le management de projet et les systèmes complexes ? Intégrez une équipe dynamique pour piloter des solutions de gestion de parcours innovantes.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Consultant Path Management">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Consultant Path Management')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -474,13 +471,13 @@
             <!-- Offre 2 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-2">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Lead Dev VueJS / PHP</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Lead Dev VueJS / PHP')</h5>
                 <p class="offre-desc">
-                  En tant qu'expert JS, vous encadrerez le développement front-end VueJS avec des projets backend PHP robustes et évolutifs dans un environnement agile.
+                  @lang('En tant qu\'expert JS, vous encadrerez le développement front-end VueJS avec des projets backend PHP robustes et évolutifs dans un environnement agile.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Lead Dev VueJS / PHP">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Lead Dev VueJS / PHP')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -488,13 +485,13 @@
             <!-- Offre 3 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-3">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Ingénieur Radio QoS</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Ingénieur Radio QoS')</h5>
                 <p class="offre-desc">
-                  Analyser la qualité du signal radio, mesurer les KPIs et améliorer l'expérience utilisateur au sein de réseaux mobiles de nouvelle génération.
+                  @lang('Analyser la qualité du signal radio, mesurer les KPIs et améliorer l\'expérience utilisateur au sein de réseaux mobiles de nouvelle génération.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Ingénieur Radio QoS">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Ingénieur Radio QoS')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -502,13 +499,13 @@
             <!-- Offre 4 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-4">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Technicien HelpDesk</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Technicien HelpDesk')</h5>
                 <p class="offre-desc">
-                  Premier point de contact pour nos utilisateurs, vous assurez le support technique, la résolution des incidents et l'assistance à distance.
+                  @lang('Premier point de contact pour nos utilisateurs, vous assurez le support technique, la résolution des incidents et l\'assistance à distance.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Technicien HelpDesk">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Technicien HelpDesk')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -516,13 +513,13 @@
             <!-- Offre 5 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-5">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Ingénieur Réseaux Télécoms</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Ingénieur Réseaux Télécoms')</h5>
                 <p class="offre-desc">
-                  Concevez et optimisez des architectures réseaux complexes et performantes pour accompagner la transformation numérique de nos clients.
+                  @lang('Concevez et optimisez des architectures réseaux complexes et performantes pour accompagner la transformation numérique de nos clients.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Ingénieur Réseaux Télécoms">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Ingénieur Réseaux Télécoms')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -530,13 +527,13 @@
             <!-- Offre 6 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-1">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Développeur Full Stack</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Développeur Full Stack')</h5>
                 <p class="offre-desc">
-                  Rejoignez une équipe agile en tant que développeur Full Stack pour concevoir des applications web scalables en PHP, Laravel et VueJS.
+                  @lang('Rejoignez une équipe agile en tant que développeur Full Stack pour concevoir des applications web scalables en PHP, Laravel et VueJS.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Développeur Full Stack">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Développeur Full Stack')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -544,13 +541,13 @@
             <!-- Offre 7 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-2">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Ingénieur Réseau CCIE & JUNIPER Senior</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Ingénieur Réseau CCIE & JUNIPER Senior')</h5>
                 <p class="offre-desc">
-                  Maintenir en condition opérationnelle les fabric CISCO et les infrastructures MPLS JUNIPER, assurer le support N3, optimiser et sécuriser les infrastructures critiques réseau.
+                  @lang('Maintenir en condition opérationnelle les fabric CISCO et les infrastructures MPLS JUNIPER, assurer le support N3, optimiser et sécuriser les infrastructures critiques réseau.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Ingénieur Réseau CCIE & JUNIPER Senior">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Ingénieur Réseau CCIE & JUNIPER Senior')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -558,13 +555,13 @@
             <!-- Offre 8 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-3">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Développeur Back-End Senior Java / IA</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Développeur Back-End Senior Java / IA')</h5>
                 <p class="offre-desc">
-                  Concevoir, développer et maintenir des applications back-end robustes pour les plateformes digitales de Carrefour, tout en intégrant des composants IA.
+                  @lang('Concevoir, développer et maintenir des applications back-end robustes pour les plateformes digitales de Carrefour, tout en intégrant des composants IA.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Développeur Back-End Senior Java / IA">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Développeur Back-End Senior Java / IA')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -572,13 +569,13 @@
             <!-- Offre 9 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-4">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Développement Mobile – Kotlin</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Développement Mobile – Kotlin')</h5>
                 <p class="offre-desc">
-                  Renforcer l'équipe mobile pour le développement d'applications Android natives au sein d'un projet stratégique.
+                  @lang('Renforcer l\'équipe mobile pour le développement d\'applications Android natives au sein d\'un projet stratégique.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Développement Mobile – Kotlin">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Développement Mobile – Kotlin')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -586,13 +583,13 @@
             <!-- Offre 10 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-5">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Dev Fullstack Senior Java et VueJS</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Dev Fullstack Senior Java et VueJS')</h5>
                 <p class="offre-desc">
-                  Développement et maintenance des services backend robustes et performants pour Carrefour Assurance, incluant la plateforme de courtage multi-marque/pays et le site assurance.carrefour.fr.
+                  @lang('Développement et maintenance des services backend robustes et performants pour Carrefour Assurance, incluant la plateforme de courtage multi-marque/pays et le site assurance.carrefour.fr.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Dev Fullstack Senior Java et VueJS">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Dev Fullstack Senior Java et VueJS')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -600,13 +597,13 @@
             <!-- Offre 11 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-1">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Dev Back-end Senior PHP</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Dev Back-end Senior PHP')</h5>
                 <p class="offre-desc">
-                  Développement et maintenance des services backend robustes et performants pour Carrefour Assurance, incluant la plateforme de courtage multi-marque/pays et le site assurance.carrefour.fr.
+                  @lang('Développement et maintenance des services backend robustes et performants pour Carrefour Assurance, incluant la plateforme de courtage multi-marque/pays et le site assurance.carrefour.fr.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Dev Back-end Senior PHP">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Dev Back-end Senior PHP')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -614,13 +611,13 @@
             <!-- Offre 12 -->
             <li class="glide__slide">
               <div class="offre-card shadow-sm animate-slide-in delay-2">
-                <span class="badge-type">FULL TIME</span>
-                <h5 class="offre-title">Ingénieur(e) Performance Senior</h5>
+                <span class="badge-type">@lang('FULL TIME')</span>
+                <h5 class="offre-title">@lang('Ingénieur(e) Performance Senior')</h5>
                 <p class="offre-desc">
-                  Évaluer, tester, analyser et optimiser les performances des applications Cloud pour garantir réactivité et robustesse des livrables. Mise en place de stratégies d'amélioration continue et intégration de la performance dès la phase de conception.
+                  @lang('Évaluer, tester, analyser et optimiser les performances des applications Cloud pour garantir réactivité et robustesse des livrables. Mise en place de stratégies d\'amélioration continue et intégration de la performance dès la phase de conception.')
                 </p>
-                <button class="btn btn-primary w-100 postuler-btn" data-offre="Ingénieur(e) Performance Senior">
-                  <i class="fas fa-paper-plane me-2"></i> POSTULER
+                <button class="btn btn-primary w-100 postuler-btn" data-offre="@lang('Ingénieur(e) Performance Senior')">
+                  <i class="fas fa-paper-plane me-2"></i> @lang('POSTULER')
                 </button>
               </div>
             </li>
@@ -658,11 +655,11 @@
         <div class="d-flex flex-column text-center text-md-start h-100">
           <div class="mb-4">
             <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
-            <p>Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
+            <p>@lang('Votre partenaire technologique pour l\'innovation et la transformation digitale.')</p>
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">NOS FILIALES</h5>
+            <h5 class="fw-bold mb-3">@lang('NOS FILIALES')</h5>
             <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
               <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
               <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
@@ -674,31 +671,31 @@
       <!-- Column 2: Navigation -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NAVIGATION</h5>
+          <h5 class="fw-bold mb-3">@lang('NAVIGATION')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/" class="hover-underline">Accueil</a>
+              <a href="/" class="hover-underline">@lang('Accueil')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/nos-services" class="hover-underline">Nos Services</a>
+              <a href="/nos-services" class="hover-underline">@lang('Nos Services')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/a-propos" class="hover-underline">A propos</a>
+              <a href="/a-propos" class="hover-underline">@lang('A propos')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/actualites" class="hover-underline">Actualités</a>
+              <a href="/actualites" class="hover-underline">@lang('Actualités')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/carrieres" class="hover-underline">Carrières</a>
+              <a href="/carrieres" class="hover-underline">@lang('Carrières')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/contact" class="hover-underline">Contact</a>
+              <a href="/contact" class="hover-underline">@lang('Contact')</a>
             </li>
           </ul>
         </div>
@@ -707,31 +704,31 @@
       <!-- Column 3: Services -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NOS SERVICES</h5>
+          <h5 class="fw-bold mb-3">@lang('NOS SERVICES')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Transformation Digitale</span>
+              <span>@lang('Transformation Digitale')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>IT Outsourcing</span>
+              <span>@lang('IT Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Data & Cloud</span>
+              <span>@lang('Data & Cloud')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Recherche & Innovation</span>
+              <span>@lang('Recherche & Innovation')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Business Process Outsourcing</span>
+              <span>@lang('Business Process Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Cybersécurité</span>
+              <span>@lang('Cybersécurité')</span>
             </li>
           </ul>
         </div>
@@ -741,7 +738,7 @@
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100 d-flex flex-column">
           <div class="mb-4">
-            <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('CONTACTEZ-NOUS')</h5>
             <ul class="list-unstyled d-flex flex-column gap-3">
               <li class="d-flex">
                 <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
@@ -759,7 +756,7 @@
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('SUIVEZ-NOUS')</h5>
             <div class="social-icons d-flex">
               <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
                 <i class="bi bi-linkedin fs-5"></i>
@@ -780,11 +777,11 @@
     <div class="border-top border-secondary mt-4 pt-4">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
         <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
-          &copy; 2025 ACHMITECH. Tous droits réservés.
+          &copy; 2025 ACHMITECH. @lang('Tous droits réservés.')
         </p>
         <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
-          <a href="#" class="text-white me-3 hover-underline">Mentions légales</a>
-          <a href="#" class="text-white hover-underline">Politique de confidentialité</a>
+          <a href="#" class="text-white me-3 hover-underline">@lang('Mentions légales')</a>
+          <a href="#" class="text-white hover-underline">@lang('Politique de confidentialité')</a>
         </div>
       </div>
     </div>
@@ -904,6 +901,11 @@
         });
     });
 </script>
-
+<script>
+  $("#selectLocale").on('change',function(){
+    var locale = $(this).val();
+    window.location.href="/changeLocale/"+locale;
+  })
+</script>
 </body>
 </html>

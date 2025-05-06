@@ -8,6 +8,10 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
     :root {
       --primary-blue:rgb(0, 0, 0);
@@ -191,42 +195,37 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link" href="/nos-services">Nos Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="/a-propos">A propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="/actualites">Actualités</a></li>
-                <li class="nav-item"><a class="nav-link" href="/carrieres">Carrières</a></li>
-                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">Rejoignez-nous</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">@lang("Home")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/nos-services">{{trans("Nos Services")}}</a></li>
+                <li class="nav-item"><a class="nav-link" href="/a-propos">@lang("A propos")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/actualites">@lang("Actualités")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/carrieres">@lang("Carrières")</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rejoignez-nous">@lang("Rejoignez-nous")</a></li>
             </ul>
             <div class="d-flex align-items-center gap-3">
-                <a href="/contact" class="btn btn-primary">Contactez-nous</a>
-                <div class="dropdown">
-                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
-                        FR
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">FR</a></li>
-                        <li><a class="dropdown-item" href="#">EN</a></li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
+                <a href="/contact" class="btn btn-primary">@lang("Contactez-nous")</a>
+                <select name="selectLocale" id="selectLocale">
+              
+<option @if(app()->getLocale() == 'fr') selected @endif value="fr">fr</option>
+<option @if(app()->getLocale() == 'en') selected @endif value="en">en</option>
+
+</select>
     </div>
 </nav>
 <br><br><br>
+<!-- Hero Section -->
 <!-- Hero Section -->
 <section class="hero-section">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6">
-        <h1 class="mb-4">Une offre de service différenciante</h1>
+        <h1 class="mb-4">@lang('Une offre de service différenciante')</h1>
         <p class="lead">
-          Forts de nos années d'expertise dans la conception de stratégies de services digitaux dans les secteurs les plus prometteurs, nous mobilisons des équipes de spécialistes pour intervenir sur l'ensemble du cycle de vie des projets de nos clients à travers le monde.
+          @lang('Forts de nos années d\'expertise dans la conception de stratégies de services digitaux dans les secteurs les plus prometteurs, nous mobilisons des équipes de spécialistes pour intervenir sur l\'ensemble du cycle de vie des projets de nos clients à travers le monde.')
         </p>
       </div>
       <div class="col-lg-6 text-center">
-        <img src="images/A_propos.svg" alt="Services digitaux ACHMITECH" class="img-fluid rounded">
+        <img src="images/A_propos.svg" alt="@lang('Services digitaux ACHMITECH')" class="img-fluid rounded">
       </div>
     </div>
   </div>
@@ -235,20 +234,20 @@
 <!-- Découvrez Achmitech -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center section-title animate__animated animate__fadeInDown">Découvrez Achmitech, l'expert en transformation digitale</h2>
+    <h2 class="text-center section-title animate__animated animate__fadeInDown">@lang('Découvrez Achmitech, l\'expert en transformation digitale')</h2>
     <p class="text-center mb-5 animate__animated animate__fadeIn animate__delay-1s">
-      Notre engagement envers l'innovation et l'efficacité opérationnelle nous distingue sur la scène numérique mondiale.
+      @lang('Notre engagement envers l\'innovation et l\'efficacité opérationnelle nous distingue sur la scène numérique mondiale.')
     </p>
     <div class="row justify-content-center g-4">
       <!-- Card 1 -->
       <div class="col-sm-10 col-md-6 col-lg-3 animate__animated animate__fadeInUp animate__delay-2s">
         <div class="service-card p-4 mx-auto h-100 shadow-sm rounded-3">
           <div class="text-center mb-3">
-            <img src="images/client-1.svg" alt="Consulting" class="img-fluid" style="height: 40px;">
+            <img src="images/client-1.svg" alt="@lang('Consulting')" class="img-fluid" style="height: 40px;">
           </div>
-          <h3 class="service-title text-center mb-3 fw-bold">Consulting</h3>
+          <h3 class="service-title text-center mb-3 fw-bold">@lang('Consulting')</h3>
           <p class="text-center mb-0">
-            Nous offrons des conseils et des solutions informatiques sur mesure pour optimiser les opérations de nos clients.
+            @lang('Nous offrons des conseils et des solutions informatiques sur mesure pour optimiser les opérations de nos clients.')
           </p>
         </div>
       </div>
@@ -257,11 +256,11 @@
       <div class="col-sm-10 col-md-6 col-lg-3 animate__animated animate__fadeInUp animate__delay-3s">
         <div class="service-card p-4 mx-auto h-100 shadow-sm rounded-3">
           <div class="text-center mb-3">
-            <img src="images/logo.svg" alt="Recrutement" class="img-fluid" style="height: 40px;">
+            <img src="images/logo.svg" alt="@lang('Recrutement')" class="img-fluid" style="height: 40px;">
           </div>
-          <h3 class="service-title text-center mb-3 fw-bold">Recrutement</h3>
+          <h3 class="service-title text-center mb-3 fw-bold">@lang('Recrutement')</h3>
           <p class="text-center mb-0">
-            Notre expertise garantit l'identification et l'embauche des talents les plus qualifiés.
+            @lang('Notre expertise garantit l\'identification et l\'embauche des talents les plus qualifiés.')
           </p>
         </div>
       </div>
@@ -270,11 +269,11 @@
       <div class="col-sm-10 col-md-6 col-lg-3 animate__animated animate__fadeInUp animate__delay-4s">
         <div class="service-card p-4 mx-auto h-100 shadow-sm rounded-3">
           <div class="text-center mb-3">
-            <img src="images/client-2.svg" alt="Intérim" class="img-fluid" style="height: 40px;">
+            <img src="images/client-2.svg" alt="@lang('Intérim')" class="img-fluid" style="height: 40px;">
           </div>
-          <h3 class="service-title text-center mb-3 fw-bold">Intérim</h3>
+          <h3 class="service-title text-center mb-3 fw-bold">@lang('Intérim')</h3>
           <p class="text-center mb-0">
-            Nous proposons des services d'intérim flexibles avec un haut niveau de performance.
+            @lang('Nous proposons des services d\'intérim flexibles avec un haut niveau de performance.')
           </p>
         </div>
       </div>
@@ -291,11 +290,11 @@
         <div class="d-flex flex-column text-center text-md-start h-100">
           <div class="mb-4">
             <img src="images/logo-Achmitech-Blanc.svg" alt="ACHMITECH" class="footer-logo mb-3" height="50">
-            <p>Votre partenaire technologique pour l'innovation et la transformation digitale.</p>
+            <p>@lang('Votre partenaire technologique pour l\'innovation et la transformation digitale.')</p>
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">NOS FILIALES</h5>
+            <h5 class="fw-bold mb-3">@lang('NOS FILIALES')</h5>
             <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
               <img src="images/Service-Empower-Blanc.png" alt="SERVICE EMPOWER" class="subsidiary-img" height="25">
               <img src="images/2HAJOB-Blanc.png" alt="2HAJOB" class="subsidiary-img" height="25">
@@ -307,31 +306,31 @@
       <!-- Column 2: Navigation -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NAVIGATION</h5>
+          <h5 class="fw-bold mb-3">@lang('NAVIGATION')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/" class="hover-underline">Accueil</a>
+              <a href="/" class="hover-underline">@lang('Accueil')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/nos-services" class="hover-underline">Nos Services</a>
+              <a href="/nos-services" class="hover-underline">@lang('Nos Services')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/a-propos" class="hover-underline">A propos</a>
+              <a href="/a-propos" class="hover-underline">@lang('A propos')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/actualites" class="hover-underline">Actualités</a>
+              <a href="/actualites" class="hover-underline">@lang('Actualités')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/carrieres" class="hover-underline">Carrières</a>
+              <a href="/carrieres" class="hover-underline">@lang('Carrières')</a>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <a href="/contact" class="hover-underline">Contact</a>
+              <a href="/contact" class="hover-underline">@lang('Contact')</a>
             </li>
           </ul>
         </div>
@@ -340,31 +339,31 @@
       <!-- Column 3: Services -->
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100">
-          <h5 class="fw-bold mb-3">NOS SERVICES</h5>
+          <h5 class="fw-bold mb-3">@lang('NOS SERVICES')</h5>
           <ul class="list-unstyled d-flex flex-column gap-2">
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Transformation Digitale</span>
+              <span>@lang('Transformation Digitale')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>IT Outsourcing</span>
+              <span>@lang('IT Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Data & Cloud</span>
+              <span>@lang('Data & Cloud')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Recherche & Innovation</span>
+              <span>@lang('Recherche & Innovation')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Business Process Outsourcing</span>
+              <span>@lang('Business Process Outsourcing')</span>
             </li>
             <li class="d-flex align-items-center">
               <i class="fas fa-chevron-right me-2" style="width: 16px;"></i>
-              <span>Cybersécurité</span>
+              <span>@lang('Cybersécurité')</span>
             </li>
           </ul>
         </div>
@@ -374,7 +373,7 @@
       <div class="col-lg-3 col-md-6 d-flex flex-column">
         <div class="h-100 d-flex flex-column">
           <div class="mb-4">
-            <h5 class="fw-bold mb-3">CONTACTEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('CONTACTEZ-NOUS')</h5>
             <ul class="list-unstyled d-flex flex-column gap-3">
               <li class="d-flex">
                 <i class="fas fa-map-marker-alt me-2 mt-1" style="width: 16px;"></i>
@@ -392,7 +391,7 @@
           </div>
           
           <div class="mt-auto">
-            <h5 class="fw-bold mb-3">SUIVEZ-NOUS</h5>
+            <h5 class="fw-bold mb-3">@lang('SUIVEZ-NOUS')</h5>
             <div class="social-icons d-flex">
               <a href="https://www.linkedin.com/company/achmitech" class="hover-scale">
                 <i class="bi bi-linkedin fs-5"></i>
@@ -413,11 +412,11 @@
     <div class="border-top border-secondary mt-4 pt-4">
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
         <p class="mb-3 mb-md-0 order-2 order-md-1 text-center text-md-start">
-          &copy; 2025 ACHMITECH. Tous droits réservés.
+          &copy; 2025 ACHMITECH. @lang('Tous droits réservés.')
         </p>
         <div class="d-flex order-1 order-md-2 mb-3 mb-md-0">
-          <a href="#" class="text-white me-3 hover-underline">Mentions légales</a>
-          <a href="#" class="text-white hover-underline">Politique de confidentialité</a>
+          <a href="#" class="text-white me-3 hover-underline">@lang('Mentions légales')</a>
+          <a href="#" class="text-white hover-underline">@lang('Politique de confidentialité')</a>
         </div>
       </div>
     </div>
@@ -458,6 +457,12 @@
             }
         });
     });
+</script>
+<script>
+  $("#selectLocale").on('change',function(){
+    var locale = $(this).val();
+    window.location.href="/changeLocale/"+locale;
+  })
 </script>
 </body>
 </html>

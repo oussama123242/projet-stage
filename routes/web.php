@@ -52,12 +52,12 @@ Route::get('/merci', function () {
 })->name('candidature.success');
 
 // Routes pour changer la langue de l'application
-Route::get('lang/{locale}', function ($locale) {
-    $supportedLocales = ['fr', 'en', 'ar', 'de', 'it', 'es'];
+Route::get('/changeLocale/{locale}', function (string $locale) {
     
-    if (in_array($locale, $supportedLocales)) {
-        App::setLocale($locale);
-        session(['locale' => $locale]); // Enregistrer la langue dans la session pour la maintenir durant la session utilisateur
+    if (in_array($locale,['fr', 'en'])) {
+        
+        session()->put('locale' ,$locale); 
+        //App::setLocale($locale);
     }
 
     return redirect()->back(); // Retourner à la même page après avoir changé la langue
